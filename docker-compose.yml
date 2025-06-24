@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  mars-weather-app:
+    container_name: attic-weather-app
+    image: docker.prorickey.xyz/prorickey/atticweather:0.1.0
+    restart: always
+    ports:
+      - "3456:3000"
+    depends_on:
+      - attic-weather-db
+    environment:
+      - DATABASE_URL=postgresql://attic:pass@attic-weather-db:5432/attic?schema=public
+
+  attic-weather-db:
+    image: postgres
+    container_name: attic-weather-db
+    restart: always
+    environment:
+      POSTGRES_USER: attic
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: attic
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
