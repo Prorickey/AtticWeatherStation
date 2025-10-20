@@ -9,3 +9,5 @@ I hypothesised that the attic may be getting very hot, where the AC unit lived. 
 ### The device
 
 This was built with a D1 mini ESP8266 and an Adafruit BME680. They are wired together on a breadboard and powered by a usb cable. 
+
+![Picture of the actual device built](./image.png)
